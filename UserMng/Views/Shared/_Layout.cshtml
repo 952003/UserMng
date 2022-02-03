@@ -11,21 +11,37 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">UserMng</a>
+                <a class="navbar-brand" asp-area="" asp-controller="UserManager" asp-action="Index">User Manager</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="UserManager" asp-action="Index">Manager table</a>
+                            </li>
+                        }
                     </ul>
                 </div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <span class="nav-item">
+                        <a class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="SignOut">Sign out</a>
+                    </span>
+                    <span class="nacbar-text text-light">@User.Identity.Name</span>
+                }
+                else
+                {
+                    <span class="nac-item">
+                        <a class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="SignUp">Sign Up</a>
+                    </span>
+                    <span class="nac-item">
+                        <a class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="SignIn">Sign In</a>
+                    </span>
+                }
             </div>
         </nav>
     </header>
@@ -37,7 +53,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - UserMng - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2021 - UserManager - <span>Privacy</span>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

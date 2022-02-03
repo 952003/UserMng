@@ -12,10 +12,10 @@ namespace UserMng.Services
 {
     public class UserManagerService : IUserManagerServices
     {
-        private readonly IdentityContext dbContext;
+        private readonly IdentityDBContext dbContext;
         private readonly IMapper mapper;
 
-        public UserManagerService(IdentityContext dbContext, IMapper mapper)
+        public UserManagerService(IdentityDBContext dbContext, IMapper mapper)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;

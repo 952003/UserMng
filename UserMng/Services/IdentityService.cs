@@ -12,9 +12,9 @@ namespace UserMng.Services
     public class IdentityService : IIdentityService
     {
         private readonly IIdentityUnitOfWork identityUnitOfWork;
-        private readonly IdentityContext identityContext;
+        private readonly IdentityDBContext identityContext;
 
-        public IdentityService(IIdentityUnitOfWork identityUnitOfWork, IdentityContext identityContext)
+        public IdentityService(IIdentityUnitOfWork identityUnitOfWork, IdentityDBContext identityContext)
         {
             this.identityUnitOfWork = identityUnitOfWork;
             this.identityContext = identityContext;

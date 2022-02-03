@@ -69,7 +69,7 @@ namespace UserMng.Controllers
                 ModelState.AddModelError("Authorize error", "Invalid login/password");
                 return View(signInVM);
             }
-            return RedirectToAction(nameof(UserManagerController.Index), nameof(UserManagerControlle).Replace("Controller", ""));
+            return RedirectToAction(nameof(UserManagerController.Index), nameof(UserManagerController).Replace("Controller", ""));
         }
 
         public IActionResult Exception()

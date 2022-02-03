@@ -14,7 +14,7 @@ namespace UserMng.Middlewares
             this._next = next;
         }
 
-        public async Task InvokeAsync(HttpContext context, IdentityContext dbContext, IIdentityUnitOfWork identityUnitOfWork)
+        public async Task InvokeAsync(HttpContext context, IdentityDBContext dbContext, IIdentityUnitOfWork identityUnitOfWork)
         {
             if (context.User.Identity.IsAuthenticated)
             {
