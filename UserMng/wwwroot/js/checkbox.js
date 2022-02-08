@@ -1,6 +1,10 @@
 ﻿$('#checkBoxMain').click(function () {
-    $('#table input:checkbox').prop('checked', $(this).is(':checked') ? true : false);
-});
+    if ($(this).is(':checked')) {
+        $('#table input:checkbox').prop('checked', true);
+    } else {
+        $('#table input:checkbox').prop('checked', false);
+    }
+};
 $('#table input:checkbox').click(function () {
     $('#checkBoxMain').prop('checked', false);
 });
