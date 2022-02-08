@@ -10,6 +10,7 @@ namespace UserMng.Identity
         public IdentityDBContext(DbContextOptions options)
             : base(options)
         {
+            Database.EnsureCreated();
         }
     }
 }
